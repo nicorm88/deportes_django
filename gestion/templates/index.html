@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inicio - Torremolinos Sport
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <header class="jumbotron my-4 mx-auto">
+            <h1 class="display-4 text-center">Bienvenido a Torremolinos Sport</h1>
+        </header>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <section>
+            <h2 class="text-center">Últimos partidos jugados</h2>
+            <ul class="list-group">
+                {% for partido in ultimos_partidos %}
+                    <li class="list-group-item">{{ partido.deporte }} - {{ partido.fecha_hora }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <div class="col-lg-6">
+        <section>
+            <h2 class="text-center">Próximos partidos</h2>
+            <ul class="list-group">
+                {% for partido in proximos_partidos %}
+                    <li class="list-group-item">{{ partido.deporte }} - {{ partido.fecha_hora }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</div>
+{% endblock %}

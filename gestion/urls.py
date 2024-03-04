@@ -1,0 +1,30 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('deportes/', views.DeportesListView.as_view(), name='deportes'),
+    path('deportes/agregar/', views.DeporteCreateView.as_view(), name='agregar_deporte'),
+    path('deportes/modificar/<int:pk>/', views.DeporteUpdateView.as_view(), name='modificar_deporte'),
+    path('deportes/borrar/<int:pk>/', views.DeporteDeleteView.as_view(), name='borrar_deporte'),
+    path('instalaciones/', views.InstalacionesListView.as_view(), name='instalaciones'),
+    path('instalaciones/crear/', views.InstalacionCreateView.as_view(), name='crear_instalacion'),
+    path('instalaciones/modificar/<int:pk>/', views.InstalacionUpdateView.as_view(), name='modificar_instalacion'),
+    path('instalaciones/borrar/<int:pk>/', views.InstalacionDeleteView.as_view(), name='borrar_instalacion'),
+    path('equipos/', views.EquiposListView.as_view(), name='equipos'),
+    path('equipos/agregar/', views.EquipoCreateView.as_view(), name='agregar_equipo'),
+    path('equipos/modificar/<int:pk>/', views.EquipoUpdateView.as_view(), name='modificar_equipo'),
+    path('equipos/borrar/<int:pk>/', views.EquipoDeleteView.as_view(), name='borrar_equipo'),
+    path('equipos/<int:pk>/', views.EquipoDetailView.as_view(), name='detalle_equipo'), 
+    path('equipos/<int:pk>/agregar_jugador/', views.JugadorCreateView.as_view(), name='agregar_jugador'), 
+    path('jugadores/', views.JugadoresListView.as_view(), name='jugadores'),
+    path('jugadores/<int:pk>/', views.JugadorDetailView.as_view(), name='detalle_jugador'),
+    path('jugadores/<int:pk>/modificar/', views.JugadorUpdateView.as_view(), name='modificar_jugador'),
+    path('jugadores/<int:pk>/borrar/', views.JugadorDeleteView.as_view(), name='borrar_jugador'),
+    path('jugadores/agregar/', views.JugadorCreateView2.as_view(), name='agregar_jugador2'),  
+    path('partidos/', views.PartidosListView.as_view(), name='partidos'),
+    path('partidos/<int:pk>/', views.PartidoDetailView.as_view(), name='detalle_partido'),
+    path('partidos/agregar/', views.PartidoCreateView.as_view(), name='agregar_partido'),
+    path('partidos/modificar/<int:pk>/', views.PartidoUpdateView.as_view(), name='modificar_partido'),
+    path('partidos/borrar/<int:pk>/', views.PartidoDeleteView.as_view(), name='borrar_partido'),
+]

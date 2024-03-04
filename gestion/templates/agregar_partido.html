@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Agregar Partido</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.fecha_hora.label_tag }}
+            {{ form.fecha_hora }}
+        </div>
+        <div class="form-group">
+            {{ form.deporte.label_tag }}
+            {{ form.deporte }}
+        </div>
+        <div class="form-group">
+            {{ form.instalacion.label_tag }}
+            {{ form.instalacion }}
+        </div>
+        <div class="form-group">
+            {{ form.equipo_local.label_tag }}
+            {{ form.equipo_local }}
+        </div>
+        <div class="form-group">
+            {{ form.equipo_visitante.label_tag }}
+            {{ form.equipo_visitante }}
+        </div>
+        <div class="form-group">
+            {{ form.puntos_local.label_tag }}
+            {{ form.puntos_local }}
+        </div>
+        <div class="form-group">
+            {{ form.puntos_visitante.label_tag }}
+            {{ form.puntos_visitante }}
+        </div>
+        <div class="form-group">
+            {{ form.observaciones.label_tag }}
+            {{ form.observaciones }}
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'partidos' %}" class="btn btn-secondary">Volver a Partidos</a>
+    </form>
+</div>
+{% endblock %}

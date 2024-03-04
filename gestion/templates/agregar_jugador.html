@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Agregar Nuevo Jugador al Equipo "{{ equipo.nombre }}"</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            {{ form.apellidos.label_tag }}
+            {{ form.apellidos }}
+        </div>
+        <div class="form-group">
+            {{ form.dorsal.label_tag }}
+            {{ form.dorsal }}
+        </div>
+        <div class="form-group">
+            {{ form.fecha_nacimiento.label_tag }}
+            {{ form.fecha_nacimiento }}
+        </div>
+        <div class="form-group">
+            {{ form.altura.label_tag }}
+            {{ form.altura }}
+        </div>
+        <div class="form-group">
+            {{ form.peso.label_tag }}
+            {{ form.peso }}
+        </div>
+        <div class="form-group">
+            {{ form.telefono_contacto.label_tag }}
+            {{ form.telefono_contacto }}
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Jugador</button>
+        <a href="{% url 'equipos' %}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+{% endblock %}

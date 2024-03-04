@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Modificar Partido</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_fecha_hora">Fecha y Hora:</label>
+            <input type="datetime-local" class="form-control" id="id_fecha_hora" name="fecha_hora" value="{{ form.instance.fecha_hora }}">
+        </div>
+        <div class="form-group">
+            <label for="id_deporte">Deporte:</label>
+            <select class="form-control" id="id_deporte" name="deporte">
+                {% for deporte in deportes %}
+                    <option value="{{ deporte.id }}" {% if deporte.id == form.instance.deporte.id %}selected{% endif %}>{{ deporte.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_instalacion">Instalación:</label>
+            <select class="form-control" id="id_instalacion" name="instalacion">
+                {% for instalacion in instalaciones %}
+                    <option value="{{ instalacion.id }}" {% if instalacion.id == form.instance.instalacion.id %}selected{% endif %}>{{ instalacion.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_equipo_local">Equipo Local:</label>
+            <select class="form-control" id="id_equipo_local" name="equipo_local">
+                {% for equipo in equipos %}
+                    <option value="{{ equipo.id }}" {% if equipo.id == form.instance.equipo_local.id %}selected{% endif %}>{{ equipo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_equipo_visitante">Equipo Visitante:</label>
+            <select class="form-control" id="id_equipo_visitante" name="equipo_visitante">
+                {% for equipo in equipos %}
+                    <option value="{{ equipo.id }}" {% if equipo.id == form.instance.equipo_visitante.id %}selected{% endif %}>{{ equipo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_puntos_local">Puntos Equipo Local:</label>
+            <input type="number" class="form-control" id="id_puntos_local" name="puntos_local" value="{{ form.instance.puntos_local }}">
+        </div>
+        <div class="form-group">
+            <label for="id_puntos_visitante">Puntos Equipo Visitante:</label>
+            <input type="number" class="form-control" id="id_puntos_visitante" name="puntos_visitante" value="{{ form.instance.puntos_visitante }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{% url 'partidos' %}" class="btn btn-secondary">Volver a Partidos</a>
+    </form>
+</div>
+{% endblock %}

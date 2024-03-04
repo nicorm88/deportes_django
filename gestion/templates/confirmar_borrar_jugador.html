@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Confirmar Borrar Jugador</h1>
+    <p>¿Estás seguro que deseas borrar a {{ jugador.nombre }} {{ jugador.apellidos }}?</p>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Borrar</button>
+        <a href="{% url 'jugadores' %}" class="btn btn-secondary">Volver a jugadores</a>
+    </form>
+</div>
+{% endblock %}

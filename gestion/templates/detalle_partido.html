@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Detalle de Partido</h2>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text"><strong>Fecha y Hora:</strong> {{ partido.fecha_hora }}</p>
+            <p class="card-text"><strong>Deporte:</strong> {{ partido.deporte }}</p>
+            <p class="card-text"><strong>Equipo Local:</strong> {{ partido.equipo_local }} ({{ partido.puntos_local }} puntos)</p>
+            <p class="card-text"><strong>Equipo Visitante:</strong> {{ partido.equipo_visitante }} ({{ partido.puntos_visitante }} puntos)</p>
+            <a href="{% url 'partidos' %}" class="btn btn-secondary">Volver a partidos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

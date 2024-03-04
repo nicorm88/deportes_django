@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listar Deportes
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Listado de Deportes</h1>
+    <ul class="list-group">
+        {% for deporte in deportes %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ deporte.nombre }}
+                <div class="btn-group" role="group">
+                    <a href="{% url 'modificar_deporte' deporte.pk %}" class="btn btn-primary btn-sm">Modificar</a>
+                    <a href="{% url 'borrar_deporte' deporte.pk %}" class="btn btn-danger btn-sm">Borrar</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'agregar_deporte' %}" class="btn btn-success mt-3">Agregar Deporte</a>
+    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a menú</a>
+</div>
+{% endblock %}

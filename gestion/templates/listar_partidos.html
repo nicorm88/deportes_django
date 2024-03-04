@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Listado de Partidos</h2>
+    <ul class="list-group">
+        {% for partido in partidos %}
+        <li class="list-group-item">
+            <a href="{% url 'detalle_partido' partido.pk %}">
+                {{ partido.fecha_hora }} - {{ partido.deporte }} - {{ partido.equipo_local }} ({{ partido.puntos_local }}) vs {{ partido.equipo_visitante }} ({{ partido.puntos_visitante }})
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'agregar_partido' %}" class="btn btn-primary mt-3">Agregar Partido</a>
+    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver al menú</a>
+</div>
+{% endblock %}

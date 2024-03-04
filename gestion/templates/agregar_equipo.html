@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Agregar Nuevo Equipo</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            {{ form.deporte.label_tag }}
+            {{ form.deporte }}
+        </div>
+        <div class="form-group">
+            {{ form.descripcion_equipaciones.label_tag }}
+            {{ form.descripcion_equipaciones }}
+        </div>
+        <div class="form-group">
+            {{ form.nombre_contacto.label_tag }}
+            {{ form.nombre_contacto }}
+        </div>
+        <div class="form-group">
+            {{ form.telefono_contacto.label_tag }}
+            {{ form.telefono_contacto }}
+        </div>
+        <div class="form-group">
+            {{ form.correo_contacto.label_tag }}
+            {{ form.correo_contacto }}
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Equipo</button>
+        <a href="{% url 'equipos' %}" class="btn btn-secondary">Volver a Equipos</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Modificar Equipo</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" class="form-control" id="id_nombre" name="nombre" value="{{ form.instance.nombre }}">
+        </div>
+        <div class="form-group">
+            <label for="id_deporte">Deporte:</label>
+            <select class="form-control" id="id_deporte" name="deporte">
+                {% for choice in form.deporte.field.choices %}
+                    <option value="{{ choice.0 }}" {% if choice.0 == form.instance.deporte %}selected{% endif %}>{{ choice.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_descripcion_equipaciones">Descripción de las Equipaciones:</label>
+            <textarea class="form-control" id="id_descripcion_equipaciones" name="descripcion_equipaciones">{{ form.instance.descripcion_equipaciones }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="id_nombre_contacto">Nombre de Contacto:</label>
+            <input type="text" class="form-control" id="id_nombre_contacto" name="nombre_contacto" value="{{ form.instance.nombre_contacto }}">
+        </div>
+        <div class="form-group">
+            <label for="id_telefono_contacto">Teléfono de Contacto:</label>
+            <input type="text" class="form-control" id="id_telefono_contacto" name="telefono_contacto" value="{{ form.instance.telefono_contacto }}">
+        </div>
+        <div class="form-group">
+            <label for="id_correo_contacto">Correo de Contacto:</label>
+            <input type="email" class="form-control" id="id_correo_contacto" name="correo_contacto" value="{{ form.instance.correo_contacto }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{% url 'equipos' %}" class="btn btn-secondary">Volver a Equipos</a>
+    </form>
+</div>
+{% endblock %}

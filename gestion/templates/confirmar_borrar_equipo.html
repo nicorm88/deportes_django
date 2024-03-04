@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">¿Estás seguro de que quieres borrar el equipo "{{ equipo.nombre }}"?</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Borrado</button>
+        <a href="{% url 'equipos' %}" class="btn btn-secondary">Volver a Equipos</a>
+    </form>
+</div>
+{% endblock %}

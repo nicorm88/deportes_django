@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Listado de Instalaciones</h1>
+    <ul class="list-group">
+        {% for instalacion in instalaciones %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ instalacion.nombre }}
+            <div class="btn-group" role="group">
+                <a href="{% url 'modificar_instalacion' instalacion.id %}" class="btn btn-primary btn-sm">Modificar</a>
+                <a href="{% url 'borrar_instalacion' instalacion.id %}" class="btn btn-danger btn-sm">Borrar</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_instalacion' %}" class="btn btn-success mt-3">Crear Nueva Instalación</a>
+    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a menú</a>
+</div>
+{% endblock %}

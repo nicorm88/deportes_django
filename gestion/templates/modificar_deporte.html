@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Modificar Deporte</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" class="form-control" id="id_nombre" name="nombre" value="{{ form.instance.nombre }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{% url 'deportes' %}" class="btn btn-secondary">Volver a Deportes</a>
+    </form>
+</div>
+{% endblock %}
